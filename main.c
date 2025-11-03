@@ -128,7 +128,7 @@ int main() {
     while (1) {
         int choice = mainMenu();
         if (choice == 3) {
-            printf("\n✓ Thank you for using Library Management System!\n");
+            printf("\nThank you for using Library Management System!\n");
             printf("  Goodbye!\n\n");
             break;
         }
