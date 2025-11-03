@@ -128,7 +128,7 @@ int main() {
     while (1) {
         int choice = mainMenu();
         if (choice == 3) {
-            printf("\n✓ Thank you for using Library Management System!\n");
+            printf("\n  Thank you for using Library Management System!\n");
             printf("  Goodbye!\n\n");
             break;
         }
@@ -368,7 +368,7 @@ void addBook() {
     books[bookCount++] = newBook;
     saveBooks();
     
-    printf("\n✓ Book added successfully with ID: %d\n", newBook.bookID);
+    printf("\n  Book added successfully with ID: %d\n", newBook.bookID);
     pauseScreen();
 }
 
@@ -426,7 +426,7 @@ void searchBook() {
             
             for (int i = 0; i < bookCount; i++) {
                 if (books[i].bookID == id && books[i].isActive) {
-                    printf("\n✓ Book Found:\n");
+                    printf("\n Book Found:\n");
                     printf("─────────────────\n");
                     printf("ID          : %d\n", books[i].bookID);
                     printf("Title       : %s\n", books[i].title);
@@ -501,7 +501,7 @@ void searchBook() {
             
             for (int i = 0; i < bookCount; i++) {
                 if (strcmp(books[i].ISBN, isbn) == 0 && books[i].isActive) {
-                    printf("\n✓ Book Found:\n");
+                    printf("\n  Book Found:\n");
                     printf("─────────────────\n");
                     printf("ID          : %d\n", books[i].bookID);
                     printf("Title       : %s\n", books[i].title);
@@ -578,7 +578,7 @@ void updateBook() {
     if (strlen(input) > 0) books[found].price = atof(input);
     
     saveBooks();
-    printf("\n✓ Book updated successfully!\n");
+    printf("\n  Book updated successfully!\n");
     pauseScreen();
 }
 
@@ -618,9 +618,9 @@ void deleteBook() {
     if (confirm == 'y' || confirm == 'Y') {
         books[found].isActive = 0;
         saveBooks();
-        printf("\n✓ Book deleted successfully!\n");
+        printf("\n  Book deleted successfully!\n");
     } else {
-        printf("\n✓ Deletion cancelled.\n");
+        printf("\n  Deletion cancelled.\n");
     }
     
     pauseScreen();
@@ -690,7 +690,7 @@ void addMember() {
     members[memberCount++] = newMember;
     saveMembers();
     
-    printf("\n✓ Member registered successfully with ID: %d\n", newMember.memberID);
+    printf("\n  Member registered successfully with ID: %d\n", newMember.memberID);
     pauseScreen();
 }
 
@@ -745,7 +745,7 @@ void searchMember() {
             
             for (int i = 0; i < memberCount; i++) {
                 if (members[i].memberID == id && members[i].isActive) {
-                    printf("\n✓ Member Found:\n");
+                    printf("\n  Member Found:\n");
                     printf("─────────────────\n");
                     printf("ID          : %d\n", members[i].memberID);
                     printf("Name        : %s\n", members[i].name);
@@ -846,7 +846,7 @@ void updateMember() {
     if (strlen(input) > 0) strcpy(members[found].address, input);
     
     saveMembers();
-    printf("\n✓ Member updated successfully!\n");
+    printf("\n  Member updated successfully!\n");
     pauseScreen();
 }
 
@@ -886,9 +886,9 @@ void deleteMember() {
     if (confirm == 'y' || confirm == 'Y') {
         members[found].isActive = 0;
         saveMembers();
-        printf("\n✓ Member deleted successfully!\n");
+        printf("\n  Member deleted successfully!\n");
     } else {
-        printf("\n✓ Deletion cancelled.\n");
+        printf("\n  Deletion cancelled.\n");
     }
     
     pauseScreen();
@@ -1021,7 +1021,7 @@ void issueBook() {
     strftime(issueStr, 26, "%Y-%m-%d", localtime(&newTrans.issueDate));
     strftime(dueStr, 26, "%Y-%m-%d", localtime(&newTrans.dueDate));
     
-    printf("\n✓ Book issued successfully!\n");
+    printf("\n  Book issued successfully!\n");
     printf("─────────────────────────────\n");
     printf("Transaction ID : %d\n", newTrans.transactionID);
     printf("Book           : %s\n", books[bookIndex].title);
@@ -1092,7 +1092,7 @@ void returnBook() {
     char returnStr[26];
     strftime(returnStr, 26, "%Y-%m-%d", localtime(&transactions[transIndex].returnDate));
     
-    printf("\n✓ Book returned successfully!\n");
+    printf("\n  Book returned successfully!\n");
     printf("─────────────────────────────\n");
     printf("Transaction ID : %d\n", transactions[transIndex].transactionID);
     if (bookIndex != -1) {
@@ -1109,7 +1109,7 @@ void returnBook() {
                getDaysDifference(transactions[transIndex].dueDate, 
                                transactions[transIndex].returnDate));
     } else {
-        printf("\n✓ Returned on time. No fine!\n");
+        printf("\n  Returned on time. No fine!\n");
     }
     
     pauseScreen();
@@ -1349,7 +1349,7 @@ void adminMenu() {
                 break;
             }
             case 5:
-                printf("\n✓ Logged out successfully!\n");
+                printf("\n  Logged out successfully!\n");
                 pauseScreen();
                 return;
             default:
@@ -1381,7 +1381,7 @@ int mainMenu() {
             scanf("%s", password);
             
             if (verifyAdmin(username, password)) {
-                printf("\n✓ Login successful!\n");
+                printf("\n  Login successful!\n");
                 pauseScreen();
                 adminMenu();
             } else {
@@ -1405,7 +1405,7 @@ int mainMenu() {
             }
             
             if (found != -1) {
-                printf("\n✓ Welcome, %s!\n", members[found].name);
+                printf("\n  Welcome, %s!\n", members[found].name);
                 pauseScreen();
                 
                 while (1) {
@@ -1457,7 +1457,7 @@ int mainMenu() {
                                             transactions[i].dueDate, now);
                                         printf("⚠ OVERDUE (%d days)", daysOverdue);
                                     } else {
-                                        printf("✓ Active");
+                                        printf("  Active");
                                     }
                                     
                                     printf("\n");
@@ -1479,7 +1479,7 @@ int mainMenu() {
                             searchBook();
                             break;
                         case 4:
-                            printf("\n✓ Logged out!\n");
+                            printf("\n  Logged out!\n");
                             pauseScreen();
                             goto member_exit;
                         default:
